@@ -40,7 +40,19 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "should reject obviously invalid emails" do
+    crap_emails = %w[jerk00favabeansorg mehmeh@snaggletooth-info charles@gmail]
 
+    crap_emails.each do |crap_email|
+      @user.email = crap_email
+      assert_not @user.valid? "#{crap_email.inspect} should be invalid"
+    end
+  end
+
+  test "email address must be unique" do
+    double_user = @user.dup
+    double_user.email = @user.email.upcase
+    @user.save
+    assert_not double_user.valid?
   end
 
 end
