@@ -79,3 +79,8 @@ db/development.sqlite3
 Icon?
 ehthumbs.db
 Thumbs.db
+
+
+
+db/development.sqlite3
+db/test.sqlite3
