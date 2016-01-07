@@ -34,8 +34,8 @@
             <ul class="dropdown-menu">
               <li><a href="#">Action</a></li>
               <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
               <% if logged_in?  %>
+              <li><%= link_to 'settings', edit_user_path(current_user) %></li>
               <li role="separator" class="divider"></li>
               <li><%= link_to 'log out', logout_path %></li>
               <% end %>
